@@ -22,4 +22,12 @@ Route::get("/", function () {
     return view("index");
 });
 
+Route::get("/register", [AuthController::class, 'register'])->name("register");
+Route::post("/register", [AuthController::class, 'register'])->name("register");
+
+
+Route::get("/login", function(){
+    return view("login");
+})->name("login");
+
 Route::get("/all", [AuthController::class, 'all']);

@@ -11,12 +11,21 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $user = new User();
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        if($request->isMethod("POST")){
+            $user = new User();
+            $user->fullname = $request->fullname;
+            $user->login = $request->login;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->personal_data_confirmation = (bool) $request->personal_data_confirmation;
 
-        $user->save();
-        $user->refresh();
+            $user->save();
+            $user->refresh();
+
+            return view("register", ["register_success"=> True]);
+        }
+
+        return view("register");
 
     }
 
