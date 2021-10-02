@@ -1,13 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Улучши свой город</title>
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/bootstrap-theme.min.css')}}">
-</head>
-<body>
+@extends("master")
+
+@section("content")
 <nav class="navbar navbar-default">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -68,56 +61,52 @@
     <div class="row">
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="{{asset('img/solve2.png')}}" alt="Яма на дороге">
-                <img src="{{asset('img/problem2.png')}}" alt="Яма на дороге">
+                <img src="{{asset('img/decision1.jpeg')}}" alt="Яма на дороге">
+                <img src="{{asset('img/problem1.jpeg')}}" alt="Яма на дороге">
             </div>
         </div>
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="{{asset('img/solve2.png')}}" alt="Яма на дороге">
-                <img src="{{asset('img/problem2.png')}}" alt="Яма на дороге">
+                <img src="{{asset('img/decision1.jpeg')}}" alt="Яма на дороге">
+                <img src="{{asset('img/problem1.jpeg')}}" alt="Яма на дороге">
             </div>
         </div>
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="{{asset('img/solve2.png')}}" alt="Яма на дороге">
-                <img src="{{asset('img/problem2.png')}}" alt="Яма на дороге">
+                <img src="{{asset('img/decision1.jpeg')}}" alt="Яма на дороге">
+                <img src="{{asset('img/problem1.jpeg')}}" alt="Яма на дороге">
             </div>
         </div>
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="{{asset('img/solve2.png')}}" alt="Яма на дороге">
-                <img src="{{asset('img/problem2.png')}}" alt="Яма на дороге">
+                <img src="{{asset('img/decision1.jpeg')}}" alt="Яма на дороге">
+                <img src="{{asset('img/problem1.jpeg')}}" alt="Яма на дороге">
             </div>
         </div>
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="{{asset('img/solve2.png')}}" alt="Яма на дороге">
-                <img src="{{asset('img/problem2.png')}}" alt="Яма на дороге">
+                <img src="{{asset('img/decision1.jpeg')}}" alt="Яма на дороге">
+                <img src="{{asset('img/problem1.jpeg')}}" alt="Яма на дороге">
             </div>
         </div>
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="{{asset('img/solve2.png')}}" alt="Яма на дороге">
-                <img src="{{asset('img/problem2.png')}}" alt="Яма на дороге">
+                <img src="{{asset('img/decision1.jpeg')}}" alt="Яма на дороге">
+                <img src="{{asset('img/problem1.jpeg')}}" alt="Яма на дороге">
             </div>
         </div>
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="{{asset('img/solve2.png')}}" alt="Яма на дороге">
-                <img src="{{asset('img/problem2.png')}}" alt="Яма на дороге">
+                <img src="{{asset('img/decision1.jpeg')}}" alt="Яма на дороге">
+                <img src="{{asset('img/problem1.jpeg')}}" alt="Яма на дороге">
             </div>
         </div>
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <img src="{{asset('img/solve2.png')}}" alt="Яма на дороге">
-                <img src="{{asset('img/problem2.png')}}" alt="Яма на дороге">
+                <img src="{{asset('img/decision1.jpeg')}}" alt="Яма на дороге">
+                <img src="{{asset('img/problem1.jpeg')}}" alt="Яма на дороге">
             </div>
         </div>
     </div>
 </div>
-
-<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
-</body>
-</html>
+@endsection
