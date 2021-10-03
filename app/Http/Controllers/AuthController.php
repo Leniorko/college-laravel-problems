@@ -11,7 +11,7 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        if($request->isMethod("POST")){
+        if ($request->isMethod("POST")) {
             $user = new User();
             $user->fullname = $request->fullname;
             $user->login = $request->login;
@@ -22,57 +22,39 @@ class AuthController extends Controller
             $user->save();
             $user->refresh();
 
-            return view("register", ["register_success"=> True]);
+            return view("register", ["register_success" => true]);
         }
 
         return view("register");
 
     }
 
-    public function login(Request $request)
-    {
-
-        $user = User::where('email', $request->email)->get();
-
-        if (count($user) < 1) {
-            return response()->json(['message' => 'This combination of email and password was not found'], 404);
-        };
-
-        $user = $user[0];
-        $verified = Hash::check($request->password, $user->password);
-
-        if ($verified !== true) {
-            return response()->json(['message' => 'This combination of email and password was not found'], 401);
-        };
-
-        if (Auth::attempt(['email' => $user->email, 'password' => $request->password])) {
-            return response()->json(['Message' => 'Successful'], 200);
-        } else {
-            return response()->json(['Message' => 'Something went wrong'], 401);
-        }
-    }
-
     public function authenticate(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ["required", 'email'],
-            'password' => 'required']);
+        if ($request->isMethod("POST")) {
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+            $credentials = $request->validate([
+                'login' => ["required"],
+                'password' => 'required']);
 
-            return redirect()->intended('dashboard');
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
+
+                return redirect()->intended('profile');
+            }
+
+            return back()->withErrors([
+                "email" => "The provided credentials do not match our records.",
+            ]);
         }
 
-        return back()->withErrors([
-            "email" => "The provided credentials do not match our records.",
-        ]);
+        return view("login");
     }
 
     public function logout()
     {
         Auth::logout();
-        return response()->json(['Message' => "Successful"], 200);
+        return redirect()->intended("/");
     }
 
     public function all()
