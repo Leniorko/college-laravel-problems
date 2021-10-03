@@ -37,11 +37,12 @@
                     {{-- Render part of UI with user specific pages --}}
                     @auth
                         <li class="dropdown">
-                            <a href="{{ route('profile') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-haspopup="true" aria-expanded="false">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">
                                 {{ Auth::user()->fullname }}
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><a href="{{ route('profile') }}">Профиль</a></li>
                                 <li><a href="{{ route('my_tickets') }}">Мои заявки</a></li>
                                 <li><a href="{{ route('new_ticket') }}">Новая заявка</a></li>
                                 <li role="separator" class="divider"></li>

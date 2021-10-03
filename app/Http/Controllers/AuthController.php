@@ -22,10 +22,10 @@ class AuthController extends Controller
             $user->save();
             $user->refresh();
 
-            return view("register", ["register_success" => true]);
+            return view("auth.register", ["register_success" => true]);
         }
 
-        return view("register");
+        return view("auth.register");
 
     }
 
@@ -48,7 +48,7 @@ class AuthController extends Controller
             ]);
         }
 
-        return view("login");
+        return view("auth.login");
     }
 
     public function logout()
@@ -60,7 +60,6 @@ class AuthController extends Controller
     public function all()
     {
         $all_users = User::all();
-
         return response()->json($all_users, 200, [], JSON_UNESCAPED_UNICODE);
     }
 }

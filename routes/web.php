@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TicketsController;
+use App\Models\Ticket;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,13 +34,18 @@ Route::get("/logout", [AuthController::class, 'logout'])->name("logout");
 Route::get("/all", [AuthController::class, 'all']);
 
 Route::get("/profile", function () {
-    return view("profile", ["user" => Auth::user()]);
+    return view("profile.profile", ["user" => Auth::user()]);
 })->middleware("auth")->name("profile");
 
 Route::get("/profile/tickets", function () {
-    abort(404);
+
+    $tickets = Ticket::where("user_id", auth()->user()->id)->get();
+
+    return view("profile.tickets", ["tickets" => $tickets]);
 })->name("my_tickets");
 
-Route::get("/profile/tickets/new", function () {
-    abort(404);
-})->name("new_ticket");
+Route::any("/profile/tickets/new", [TicketsController::class, "newTicket"])->name("new_ticket");
+
+Route::get("/profile/tickets/{id}", [TicketsController::class, "getTicket"])->name("ticket");
+
+Route::any("/profile/admin", [AdminController::class, "adminPage"]);
