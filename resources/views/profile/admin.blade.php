@@ -10,6 +10,7 @@
                 <p>{{ $ticket->created_at }}</p>
                 <p>{{ $ticket->status }}</p>
                 <img src="{{ $ticket->problem_img_link }}" alt="">
+                <img src="{{ $ticket->solution_img_link }}" alt="">
 
 
                 @if ($ticket->status === 'new')
