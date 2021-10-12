@@ -48,11 +48,9 @@ class TicketsController extends Controller
         return redirect()->route("ticket", ["id" => $ticket[0]->id]);
     }
 
-    public function getTicket(Request $request, $id)
+    public function getTicket(Request $request, Ticket $ticket)
     {
-        $ticket = Ticket::where("id", $id)->get();
-
-        return view("profile.ticket", ["ticket" => $ticket[0]]);
+        return view("profile.ticket", ["ticket" => $ticket]);
     }
 
     public function addSolutionImg(Request $request)

@@ -27,8 +27,8 @@ Route::get("/", function () {
 });
 
 // Auth routes
-Route::any("/register", [AuthController::class, 'register'])->name("register");
-Route::any("/login", [AuthController::class, 'authenticate'])->name("login");
+Route::match(['get', 'post'], "/register", [AuthController::class, 'register'])->name("register");
+Route::match(['get', 'post'], "/login", [AuthController::class, 'authenticate'])->name("login");
 Route::get("/logout", [AuthController::class, 'logout'])->name("logout");
 
 Route::get("/all", [AuthController::class, 'all']);
@@ -44,8 +44,8 @@ Route::get("/profile/tickets", function () {
     return view("profile.tickets", ["tickets" => $tickets]);
 })->name("my_tickets");
 
-Route::any("/profile/tickets/new", [TicketsController::class, "newTicket"])->name("new_ticket");
+Route::match(['get', 'post'], "/profile/tickets/new", [TicketsController::class, "newTicket"])->name("new_ticket");
 
-Route::get("/profile/tickets/{id}", [TicketsController::class, "getTicket"])->name("ticket");
+Route::get("/profile/tickets/{ticket}", [TicketsController::class, "getTicket"])->name("ticket");
 
-Route::any("/profile/admin", [AdminController::class, "adminPage"]);
+Route::match(['get', 'post'], "/profile/admin", [AdminController::class, "adminPage"])->middleware('admin');
