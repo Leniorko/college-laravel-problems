@@ -45,6 +45,7 @@
                                 <li><a href="{{ route('profile') }}">Профиль</a></li>
                                 <li><a href="{{ route('my_tickets') }}">Мои заявки</a></li>
                                 <li><a href="{{ route('new_ticket') }}">Новая заявка</a></li>
+                                <li><a href="{{ route('admin') }}">Панель администратора</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ route('logout') }}">Выход</a></li>
                             </ul>

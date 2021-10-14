@@ -48,4 +48,4 @@ Route::match(['get', 'post'], "/profile/tickets/new", [TicketsController::class,
 
 Route::get("/profile/tickets/{ticket}", [TicketsController::class, "getTicket"])->name("ticket");
 
-Route::match(['get', 'post'], "/profile/admin", [AdminController::class, "adminPage"])->middleware('admin');
+Route::match(['get', 'post'], "/profile/admin", [AdminController::class, "adminPage"])->middleware('admin')->name('admin');
